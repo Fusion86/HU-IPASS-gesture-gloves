@@ -1,16 +1,20 @@
 #include <hwlib.hpp>
 #include <mpu6050.hpp>
 
-mpu6050 mpu;
-
 int main() {
-    hwlib::cout << "Starting mpulog\n";
+    // Wait for the PC terminal to start
+    hwlib::wait_ms(500);
 
-    mpu.initialize();
+    auto scl = hwlib::target::pin_oc(hwlib::target::pins::scl);
+    auto sda = hwlib::target::pin_oc(hwlib::target::pins::sda);
+    auto i2c = hwlib::i2c_bus_bit_banged_scl_sda(scl, sda);
 
-    hwlib::cout << "Started mpulog\n";
+    mpu6050 mpu(i2c, MPU_ADDR_AD0_LOW);
 
     for (;;) {
+        auto accel_x = mpu.getAccelerationX();
+        hwlib::cout << "accel_x: " << accel_x << "\n";
+        hwlib::wait_ms(1000);
     }
 
     return 0;

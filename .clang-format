@@ -12,3 +12,4 @@ CompactNamespaces: true
 PointerAlignment: Left
 SortIncludes: false
 FixNamespaceComments: true
+AlignTrailingComments: false
