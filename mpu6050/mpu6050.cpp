@@ -2,10 +2,10 @@
 
 #include <hwlib-extra.hpp>
 
-acceleration::acceleration(float x, float y, float z)
+vec3::vec3(float x, float y, float z)
     : x(x), y(y), z(z) {}
 
-hwlib::ostream& operator<<(hwlib::ostream& os, const acceleration& accel) {
+hwlib::ostream& operator<<(hwlib::ostream& os, const vec3& accel) {
     os << "x: " << accel.x << "  y: " << accel.y << "  z: " << accel.z;
 
     return os;
@@ -32,8 +32,24 @@ float mpu6050::getAccelerationZ() {
     return regReadInt16(ACCEL_ZOUT_H) / 16384.f;
 }
 
-acceleration mpu6050::getAcceleration() {
-    return acceleration(getAccelerationX(), getAccelerationY(), getAccelerationZ());
+vec3 mpu6050::getAcceleration() {
+    return vec3(getAccelerationX(), getAccelerationY(), getAccelerationZ());
+}
+
+float mpu6050::getRotationX() {
+    return regReadInt16(GYRO_XOUT_H) / 131.f;
+}
+
+float mpu6050::getRotationY() {
+    return regReadInt16(GYRO_YOUT_H) / 131.f;
+}
+
+float mpu6050::getRotationZ() {
+    return regReadInt16(GYRO_ZOUT_H) / 131.f;
+}
+
+vec3 mpu6050::getRotation() {
+    return vec3(getRotationX(), getRotationY(), getRotationZ());
 }
 
 int16_t mpu6050::regReadInt16(uint8_t reg) {

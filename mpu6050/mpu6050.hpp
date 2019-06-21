@@ -19,17 +19,23 @@
 #define ACCEL_YOUT_L 0x3E
 #define ACCEL_ZOUT_H 0x3F
 #define ACCEL_ZOUT_L 0x40
+#define GYRO_XOUT_H 0x43
+#define GYRO_XOUT_L 0x44
+#define GYRO_YOUT_H 0x45
+#define GYRO_YOUT_L 0x46
+#define GYRO_ZOUT_H 0x47
+#define GYRO_ZOUT_L 0x48
 #define PWR_MGMT_1 0x6B
 
-class acceleration {
+class vec3 {
   public:
     float x;
     float y;
     float z;
 
-    acceleration(float x, float y, float z);
+    vec3(float x, float y, float z);
 
-    friend hwlib::ostream& operator<<(hwlib::ostream& os, const acceleration& accel);
+    friend hwlib::ostream& operator<<(hwlib::ostream& os, const vec3& accel);
 };
 
 class mpu6050 {
@@ -55,11 +61,19 @@ class mpu6050 {
     float getAccelerationZ();
 
     /// Get acceleration for all three axis in g/s.
-    acceleration getAcceleration();
+    vec3 getAcceleration();
 
+    // Get (relative) rotation for X-axis.
     float getRotationX();
+
+    // Get (relative) rotation for Y-axis.
     float getRotationY();
+
+    // Get (relative) rotation for Z-axis.
     float getRotationZ();
+
+    // Get (relative) rotation for all three axis.
+    vec3 getRotation();
 
   private:
     /// Read int16_t value from register.
