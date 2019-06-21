@@ -9,7 +9,7 @@ Beep boop.
 
 The library.
 
-### mpulig
+### mpulog
 
 Application to test the mpu6050 sensor (and test if the library actually works).
 
