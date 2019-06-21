@@ -12,8 +12,8 @@ int main() {
     mpu6050 mpu(i2c, MPU_ADDR_AD0_LOW);
 
     for (;;) {
-        auto accel_x = mpu.getAccelerationX();
-        hwlib::cout << "accel_x: " << accel_x << "\n";
+        auto accel = mpu.getAcceleration();
+        hwlib::cout << "accel  " << accel << "\n";
         hwlib::wait_ms(1000);
     }
 

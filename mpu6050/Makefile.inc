@@ -1,5 +1,6 @@
-# TODO: Append current directory to SEARCH
-#SEARCH            += .
+SEARCH            += ../hwlib-extra
 
-SOURCES           += mpu6050.cpp
 HEADERS           += mpu6050.hpp
+SOURCES           += mpu6050.cpp
+
+include           ../hwlib-extra/Makefile.inc

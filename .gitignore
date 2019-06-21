@@ -1,5 +1,7 @@
 .vscode/
 build/
+docs/
+
 *.o
 *.bin
 *.elf

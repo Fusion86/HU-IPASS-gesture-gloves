@@ -1,3 +1,5 @@
+/// @file
+
 #pragma once
 
 #include <hwlib.hpp>
@@ -11,27 +13,60 @@
 #define MPU_ADDR_AD0_HIGH 0x69
 
 #define ACCEL_XOUT_H 0x3B
-// #define ACCEL_XOUT_L 0x60 etc
+
+#define ACCEL_XOUT_L 0x3C
+#define ACCEL_YOUT_H 0x3D
+#define ACCEL_YOUT_L 0x3E
+#define ACCEL_ZOUT_H 0x3F
 #define ACCEL_ZOUT_L 0x40
 #define PWR_MGMT_1 0x6B
+
+class acceleration {
+  public:
+    float x;
+    float y;
+    float z;
+
+    acceleration(float x, float y, float z);
+
+    friend hwlib::ostream& operator<<(hwlib::ostream& os, const acceleration& accel);
+};
 
 class mpu6050 {
   private:
     hwlib::i2c_bus& bus;
 
-    // The 7-bit i2c address of the controller
+    /// The 7-bit i2c address of the controller
     const uint8_t address;
 
   public:
     mpu6050(hwlib::i2c_bus& i2c, const uint8_t address);
 
+    /// Reset MPU6050 to initial settings.
     void reset();
 
-    int16_t getAccelerationX();
-    int16_t getAccelerationY();
-    int16_t getAccelerationZ();
+    /// Get acceleration on the X-axis in g/s.
+    float getAccelerationX();
 
-    int16_t getRotationX();
-    int16_t getRotationY();
-    int16_t getRotationZ();
+    /// Get acceleration on the Y-axis in g/s.
+    float getAccelerationY();
+
+    /// Get acceleration on the Z-axis in g/s.
+    float getAccelerationZ();
+
+    /// Get acceleration for all three axis in g/s.
+    acceleration getAcceleration();
+
+    float getRotationX();
+    float getRotationY();
+    float getRotationZ();
+
+  private:
+    /// Read int16_t value from register.
+    ///
+    /// Because an int16_t value is split over two 8bit registers this will read from register and register+1.
+    int16_t regReadInt16(uint8_t reg);
+
+    /// Write uint8_t to register.
+    void regWriteByte(uint8_t reg, uint8_t byte);
 };
