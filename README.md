@@ -7,15 +7,23 @@ Beep boop.
 
 ### mpu6050
 
-The library.
+Basic library to read values from a MPU-6050 sensor.
 
 ### mpulog
 
-Application to test the mpu6050 sensor (and test if the library actually works).
+Application to test the MPU-6050 sensor (and test if the library actually works).
 
 ### gesture-gloves
 
-The gesture-gloves application.
+The gesture-gloves application, detects hand gestures. Requires a MPU-6050 that is duct taped to a glove.
+
+## hwlib-extra
+
+Extensions for hwlib. Currently only adds float printing support to `hwlib::cout`.
+
+## hwlib-extra-test
+
+Test (well, manual tests) for hwlib-extra. 
 
 
 ## Useful tips
