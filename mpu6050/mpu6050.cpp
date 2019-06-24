@@ -36,20 +36,20 @@ vec3 mpu6050::getAcceleration() {
     return vec3(getAccelerationX(), getAccelerationY(), getAccelerationZ());
 }
 
-float mpu6050::getRotationX() {
+float mpu6050::getGyroX() {
     return regReadInt16(GYRO_XOUT_H) / 131.f;
 }
 
-float mpu6050::getRotationY() {
+float mpu6050::getGyroY() {
     return regReadInt16(GYRO_YOUT_H) / 131.f;
 }
 
-float mpu6050::getRotationZ() {
+float mpu6050::getGyroZ() {
     return regReadInt16(GYRO_ZOUT_H) / 131.f;
 }
 
-vec3 mpu6050::getRotation() {
-    return vec3(getRotationX(), getRotationY(), getRotationZ());
+vec3 mpu6050::getGyro() {
+    return vec3(getGyroX(), getGyroY(), getGyroZ());
 }
 
 int16_t mpu6050::regReadInt16(uint8_t reg) {

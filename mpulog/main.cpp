@@ -13,10 +13,10 @@ int main() {
 
     for (;;) {
         auto accel = mpu.getAcceleration();
-        auto rot = mpu.getRotation();
+        auto gyro = mpu.getGyro();
 
         hwlib::cout << "accel  " << accel << "\n";
-        hwlib::cout << "rot    " << rot << "\n";
+        hwlib::cout << "gyro   " << gyro << "\n";
         hwlib::cout << "\n";
 
         hwlib::wait_ms(250);

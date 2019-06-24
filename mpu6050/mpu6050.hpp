@@ -64,16 +64,16 @@ class mpu6050 {
     vec3 getAcceleration();
 
     // Get (relative) rotation for X-axis.
-    float getRotationX();
+    float getGyroX();
 
     // Get (relative) rotation for Y-axis.
-    float getRotationY();
+    float getGyroY();
 
     // Get (relative) rotation for Z-axis.
-    float getRotationZ();
+    float getGyroZ();
 
     // Get (relative) rotation for all three axis.
-    vec3 getRotation();
+    vec3 getGyro();
 
   private:
     /// Read int16_t value from register.
