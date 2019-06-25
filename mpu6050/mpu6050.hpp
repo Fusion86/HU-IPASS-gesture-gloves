@@ -33,6 +33,7 @@ class vec3 {
     float y;
     float z;
 
+    vec3();
     vec3(float x, float y, float z);
 
     friend hwlib::ostream& operator<<(hwlib::ostream& os, const vec3& accel);

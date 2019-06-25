@@ -15,9 +15,10 @@ SOURCES := gestures.cpp
 HEADERS :=
 
 # other places to look for files for this project
-SEARCH  :=
+SEARCH  := ../mpu6050
 
 # set RELATIVE to the next higher directory
 # and defer to the Makefile.* there
 RELATIVE := ..
+include $(RELATIVE)/mpu6050/Makefile.inc
 include $(RELATIVE)/Makefile.due
