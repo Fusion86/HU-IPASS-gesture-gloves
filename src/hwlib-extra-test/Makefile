@@ -15,10 +15,10 @@ SOURCES :=
 HEADERS :=
 
 # other places to look for files for this project
-SEARCH  := ../hwlib-extra
+SEARCH  := ../../lib/hwlib-extra
 
 # set RELATIVE to the next higher directory
 # and defer to the Makefile.* there
-RELATIVE := ..
-include $(RELATIVE)/hwlib-extra/Makefile.inc
+RELATIVE := ../..
+include $(RELATIVE)/lib/hwlib-extra/Makefile.inc
 include $(RELATIVE)/Makefile.due
