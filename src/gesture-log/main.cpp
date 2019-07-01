@@ -1,6 +1,6 @@
 #include <hwlib.hpp>
 
-#include "gestures.hpp"
+#include <gestures.hpp>
 
 int main() {
     // Wait for the PC terminal to start
