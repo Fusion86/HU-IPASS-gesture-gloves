@@ -43,10 +43,11 @@ class mpu6050 {
   private:
     hwlib::i2c_bus& bus;
 
-    /// The 7-bit i2c address of the controller
+    /// The 7-bit i2c address of the controller.
     const uint8_t address;
 
   public:
+    /// Create MPU6050 using a i2c_bus and a 7-bit address.
     mpu6050(hwlib::i2c_bus& i2c, const uint8_t address);
 
     /// Reset MPU6050 to initial settings.
