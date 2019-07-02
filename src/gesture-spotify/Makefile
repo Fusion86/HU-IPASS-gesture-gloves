@@ -15,11 +15,10 @@ SOURCES :=
 HEADERS :=
 
 # other places to look for files for this project
-SEARCH  := ../../lib/mpu6050 ../../lib/hwlib-extra ../../lib/gesture-gloves
+SEARCH  := ../../lib/mpu6050 ../../lib/hwlib-extra
 # set RELATIVE to the next higher directory
 # and defer to the Makefile.* there
 RELATIVE := ../..
 include $(RELATIVE)/lib/mpu6050/Makefile.inc
 include $(RELATIVE)/lib/hwlib-extra/Makefile.inc
-include $(RELATIVE)/lib/gesture-gloves/Makefile.inc
 include $(RELATIVE)/Makefile.due
