@@ -5,25 +5,39 @@ Beep boop.
 
 ## Projects explained
 
-### mpu6050
+### lib/mpu6050
 
-Basic library to read values from a MPU-6050 sensor.
+Basic library to read values from a MPU-6050 sensor (on a GY-521 breakout board).
 
-### mpulog
-
-Application to test the MPU-6050 sensor (and test if the library actually works).
-
-### gesture-gloves
-
-The gesture-gloves application, detects hand gestures. Requires a MPU-6050 that is duct taped to a glove.
-
-## hwlib-extra
+### lib/hwlib-extra
 
 Extensions for hwlib. Currently only adds float printing support to `hwlib::cout`.
 
-## hwlib-extra-test
+### src/mpulog
+
+Application to test the MPU-6050 sensor (and test if the library actually works).
+
+### src/gesture-spotify
+
+The gesture-gloves application, detects simple hand gestures and translates those to spotify actions (e.g. pausing, volume up/down, next track). To use this you need to pipe the Arduino Due's output to spotify-gloves.py.
+
+### src/hwlib-extra-test
 
 Test (well, manual tests) for hwlib-extra. 
+
+
+## Example usage
+
+This only works on macOS (because AppleScript is used to emulate media key presses).  
+The python script acts like a MITM because it looks at the input before printing it to your stdout (terminal usually).
+When the script detects an `action: ...` it'll execute the task linked to that action (e.g. for `toggle_play_pause` the media play/pause key will be pressed).
+
+```sh
+# Usage if you have the Due connected to a Linux VM (which you can access over SSH)
+ssh user@my-vm-ip | python3 spotify-gloves.py
+cd gesture-gloves/src/gesture-spotify
+make run
+```
 
 
 ## Useful tips
