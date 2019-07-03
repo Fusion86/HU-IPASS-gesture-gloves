@@ -9,6 +9,9 @@ as_pause = 'tell application "Spotify"\nplaypause\nend tell'
 as_volume_up = "set volume output volume (output volume of (get volume settings) + 5)"
 as_volume_down = "set volume output volume (output volume of (get volume settings) - 5)"
 
+# Ignore any errors we might encounter
+sys.stdin.reconfigure(encoding="utf-8", errors="ignore")
+
 for xline in sys.stdin:
     line = xline.rstrip()
     print(line)

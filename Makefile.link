@@ -5,15 +5,21 @@
 # (c) Wouter van Ooijen (www.voti.nl) 2017
 #
 # This file is in the public domain.
-# 
+#
 #############################################################################
 
 # the location of the ti software directory
 ifeq ($(OS),Windows_NT)
    TI-SOFTWARE       := L:\Sources
 else
-   TI-SOFTWARE       := $(HOME)
-endif   
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+		TI-SOFTWARE       := $(HOME)
+	endif
+   ifeq ($(UNAME_S),Darwin)
+      TI-SOFTWARE       := $(HOME)/Repos
+   endif
+endif
 
 # add Catch
 SEARCH            += $(TI-SOFTWARE)/Catch2/single_include

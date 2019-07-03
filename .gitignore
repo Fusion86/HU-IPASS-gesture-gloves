@@ -9,3 +9,4 @@ docs/
 *.ld
 *.map
 *.project
+bmptk_fixed_size_stack.c
