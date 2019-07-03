@@ -8,6 +8,8 @@ import osascript
 as_pause = 'tell application "Spotify"\nplaypause\nend tell'
 as_volume_up = "set volume output volume (output volume of (get volume settings) + 5)"
 as_volume_down = "set volume output volume (output volume of (get volume settings) - 5)"
+as_next = 'tell application "Spotify"\nnext track\nend tell'
+as_prev = 'tell application "Spotify"\nprevious track\nend tell'
 
 # Ignore any errors we might encounter
 sys.stdin.reconfigure(encoding="utf-8", errors="ignore")
@@ -25,3 +27,7 @@ for xline in sys.stdin:
             osascript.run(as_volume_up)
         elif "volume_down" in action:
             osascript.run(as_volume_down)
+        elif "next" in action:
+            osascript.run(as_next)
+        elif "prev" in action:
+            osascript.run(as_prev)

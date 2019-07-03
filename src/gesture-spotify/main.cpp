@@ -75,7 +75,10 @@ int main() {
             }
         } else if (pos.y_down()) {
             // Next/previous song
-            // TODO:
+            if (gyro.y > 40)
+                hwlib::cout << "action: next\n";
+            else if (gyro.y < -40)
+                hwlib::cout << "action: prev\n";
         } else if (pos.z_down()) {
             // Toggle play/pause
             hwlib::wait_ms(1000);
