@@ -48,4 +48,4 @@ to
 
 This auto selects the connected micro-controller, the downside to this method is that it doesn't work when multiple ACM devices are connected to the same machine.
 
-lpc21isp_hr_osx is compiled on 10.14.3, [source](https://github.com/wovo/bmptk/tree/master/tools/lpc21isp_197).
+lpc21isp_hr_osx is compiled for x86_64-apple-darwin18.2.0, [source](https://github.com/wovo/bmptk/tree/master/tools/lpc21isp_197).
